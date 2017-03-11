@@ -9,6 +9,7 @@
 
 'use strict'
 
+var path = require('path')
 var test = require('mukla')
 var cleanStack = require('clean-stacktrace')
 var relativePaths = require('./index')
@@ -24,8 +25,11 @@ test('should allow passing custom cwd', function (done) {
   var mapper = relativePaths('../qux')
   var stack = cleanStack(er.stack, mapper)
 
-  // '../clean-stacktrace-relative-paths/test.js'
-  test.ok(/\(\.\.\/clean-stacktrace-relative-paths\/test\.js:/.test(stack))
+  var fp = '..' + path.sep + 'clean-stacktrace-relative-paths' + path.sep + 'test.js'
+  test.strictEqual(stack.indexOf(fp) > 5, true)
+  // test.ok(/\(\.\./i.test(stack))
+  // test.ok(/clean-stacktrace-relative-paths/i.test(stack))
+  // test.ok(/test\.js:/i.test(stack))
   done()
 })
 
