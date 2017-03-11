@@ -58,6 +58,13 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
+  "nyc": {
+    "check-coverage": true,
+    "statements": 100,
+    "functions": 100,
+    "branches": 100,
+    "lines": 100
+  },
   "verb": {
     "run": true,
     "toc": {
@@ -73,19 +80,34 @@
       "list": [
         "always-done",
         "minibase",
-        "try-catch-core"
+        "try-catch-core",
+        "clean-stacktrace",
+        "assert-kindof",
+        "kind-of-extra",
+        "is-async-function",
+        "redolent"
       ],
       "highlight": "always-done"
     },
+    "reflinks": [
+      "always-done",
+      "async-done",
+      "base",
+      "charlike",
+      "clean-stacktrace",
+      "commitizen",
+      "dezalgo",
+      "once",
+      "standard-version",
+      "verb",
+      "verb-generate-readme",
+      "clean-stack",
+      "common-callback-names",
+      "is-kindof",
+      "kind-of"
+    ],
     "lint": {
       "reflinks": true
     }
-  },
-  "nyc": {
-    "check-coverage": true,
-    "statements": 100,
-    "functions": 100,
-    "branches": 100,
-    "lines": 100
   }
 }
