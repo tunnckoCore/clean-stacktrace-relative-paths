@@ -1,6 +1,6 @@
 {
   "name": "clean-stacktrace-relative-paths",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "Meant to be used with [clean-stacktrace][] as mapper function. Makes absolute paths inside stack traces to relative paths.",
   "repository": "tunnckoCore/clean-stacktrace-relative-paths",
   "author": "Charlike Mike Reagent <@tunnckoCore> (https://i.am.charlike.online)",
