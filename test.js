@@ -10,6 +10,7 @@
 'use strict'
 
 var path = require('path')
+var isCI = require('is-ci')
 var test = require('mukla')
 var cleanStack = require('clean-stacktrace')
 var relativePaths = require('./index')
@@ -42,6 +43,12 @@ test('should work for paths non in parens', function qxu (done) {
   var relative = relativePaths()
   var res = relative(line)
 
-  test.strictEqual(res, 'at Function.qxu (test.js:44:15)')
+  if (isCI) {
+    test.strictEqual(/at Fucntion\.qxu/.test(res), true)
+    test.strictEqual(/\.\./.test(res), true)
+    test.strictEqual(/test\.js:44:15/.test(res), true)
+  } else {
+    test.strictEqual(res, 'at Function.qxu (test.js:44:15)')
+  }
   done()
 })
