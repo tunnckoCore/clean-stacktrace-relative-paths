@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.2"></a>
+## [1.0.2](https://github.com/tunnckocore/clean-stacktrace-relative-paths/compare/v1.0.1...v1.0.2) (2017-03-15)
+
+
+### Bug Fixes
+
+* **ci:** update tests for CI services ([3d75459](https://github.com/tunnckocore/clean-stacktrace-relative-paths/commit/3d75459)), closes [#2](https://github.com/tunnckocore/clean-stacktrace-relative-paths/issues/2)
+* **tests:** typo ([82ae24c](https://github.com/tunnckocore/clean-stacktrace-relative-paths/commit/82ae24c))
+
+
+
 <a name="1.0.1"></a>
 ## [1.0.1](https://github.com/tunnckocore/clean-stacktrace-relative-paths/compare/v1.0.0...v1.0.1) (2017-03-15)
 
