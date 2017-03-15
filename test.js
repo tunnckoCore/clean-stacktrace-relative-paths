@@ -44,7 +44,7 @@ test('should work for paths non in parens', function qxu (done) {
   var res = relative(line)
 
   if (isCI) {
-    test.strictEqual(/at Fucntion\.qxu/.test(res), true)
+    test.strictEqual(/at Function\.qxu/.test(res), true)
     test.strictEqual(/\.\./.test(res), true)
     test.strictEqual(/test\.js:44:15/.test(res), true)
   } else {
