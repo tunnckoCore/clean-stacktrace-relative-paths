@@ -27,9 +27,6 @@ test('should allow passing custom cwd', function (done) {
 
   var fp = '..' + path.sep + 'clean-stacktrace-relative-paths' + path.sep + 'test.js'
   test.strictEqual(stack.indexOf(fp) > 5, true)
-  // test.ok(/\(\.\./i.test(stack))
-  // test.ok(/clean-stacktrace-relative-paths/i.test(stack))
-  // test.ok(/test\.js:/i.test(stack))
   done()
 })
 
@@ -37,5 +34,14 @@ test('should be used as `mapper` function to `clean-stacktrace`', function (done
   var error = new Error('fixture err')
   var stack = cleanStack(error.stack, relativePaths())
   test.ok(/\(test\.js:/.test(stack))
+  done()
+})
+
+test('should work for paths non in parens', function qxu (done) {
+  var line = 'at Function.qxu (/home/charlike/apps/clean-stacktrace-relative-paths/test.js:44:15)'
+  var relative = relativePaths()
+  var res = relative(line)
+
+  test.strictEqual(res, 'at Function.qxu (test.js:44:15)')
   done()
 })
