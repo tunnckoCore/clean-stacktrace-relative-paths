@@ -58,8 +58,8 @@ test('should work for lines like "at /full/absolute/path.js:3:1" with no "place"
   var res = relativePaths()(line)
 
   if (isCI) {
-    test.strictEqual(/at \.\./, true)
-    test.strictEqual(/test\.js:3:1/, true)
+    test.strictEqual(/at \.\./i.test(res), true)
+    test.strictEqual(/test\.js:3:1/i.test(res), true)
   } else {
     test.strictEqual(res, 'at test.js:3:1')
   }
