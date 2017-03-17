@@ -50,10 +50,12 @@ var path = require('path')
 
 module.exports = function relativePaths (cwd) {
   return function mapper (line) {
-    var m = /at\s+.*\s+(.*)$/.exec(line) || []
+    var m = /at\s+([^\s/]+)?\s?(.*)$/.exec(line)
+    if (m) {
+      /* istanbul ignore next */
+      var filepath = (m[2] && m[2].length ? m[2] : m[1])
+      filepath = filepath.replace(/^\(/, '').replace(/\)$/, '')
 
-    if (m[1]) {
-      var filepath = m[1].replace(/^\(/, '').replace(/\)$/, '')
       var relative = path.relative(cwd || process.cwd(), filepath)
       return line.replace(filepath, relative)
     }

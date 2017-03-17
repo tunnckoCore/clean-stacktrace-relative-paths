@@ -52,3 +52,16 @@ test('should work for paths non in parens', function qxu (done) {
   }
   done()
 })
+
+test('should work for lines like "at /full/absolute/path.js:3:1" with no "place"', function (done) {
+  var line = 'at /home/charlike/apps/clean-stacktrace-relative-paths/test.js:3:1'
+  var res = relativePaths()(line)
+
+  if (isCI) {
+    test.strictEqual(/at \.\./, true)
+    test.strictEqual(/test\.js:3:1/, true)
+  } else {
+    test.strictEqual(res, 'at test.js:3:1')
+  }
+  done()
+})
